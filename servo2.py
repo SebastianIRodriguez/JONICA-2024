@@ -5,7 +5,7 @@ import time
 servo = 25
 
 # more info at http://abyz.me.uk/rpi/pigpio/python.html#set_servo_pulsewidth
-# La excursión va de 500 para 0 grados a 2500 para 1800
+# La excursión va de 500 para 0 grados a 2500 para 180
 pwm = pigpio.pi()
 pwm.set_mode(servo, pigpio.OUTPUT)
 
