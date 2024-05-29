@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+	<title>TP1: Raffagnini - Rodriguez</title>
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body class="flex height:100% flex-col font-mono bg-gray-950 m-4 items-center">
+
+    <img id="img" alt="" loading="lazy" src="img_raspberry.jpeg" class="object-contain justify-self-start">
+
+    <p class="text-white font-semibold text-6xl justify-self-start mt-4 mb-8" id="object_class">
+        Cubo Verde
+    </p>
+
+	<p class="text-m leading-6 text-slate-500 pl-6 pr-6 justify-self-end">
+		Silicio Rey y sus Portadores de Ricota - JONICA 2024
+	</p>
+
+	<script>
+		setInterval(
+			function () {
+				fetch('./data.json')
+					.then((response) => response.json())
+					.then((json) => {
+						var object_class = json["class"];
+                        console.log(object_class);
+						var img = document.getElementById("img");
+                        img.src = "img_raspberry.jpeg"
+						document.getElementById("object_class").textContent = object_class;
+					});
+			},
+			1000
+		)				
+	</script>
+</body>
+
+</html>
