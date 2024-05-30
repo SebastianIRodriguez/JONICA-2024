@@ -47,7 +47,7 @@ class HardwareControl():
         self.pi.set_servo_pulsewidth(servo_pin, angle)
 
     def take_picture(self) -> None:
-        self.picam2.capture_file("./img.jpg")
+        self.picam2.capture_file("/var/www/html/img.jpg")
     
     def set_led_intensity(self, dc) -> None:
         self.pi.set_PWM_dutycycle(led_pin,  dc)

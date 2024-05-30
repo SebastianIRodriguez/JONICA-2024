@@ -20,11 +20,11 @@ labels = ["PELOTA_ROJA", "PELOTA_VERDE", "CUBO_ROJO", "CUBO_VERDE", "VACIO"]
 
 class NeuralNetwork():
     def __init__(self):
-        self.model = torch.load("model.pt")
+        self.model = torch.load("model.pt",map_location=torch.device("cpu"))
         self.model.eval()
 
     def process_image(self) -> int:
-        img = Image.open("./img.jpg")
+        img = Image.open("/var/www/html/img.jpg")
 
         x = transform(img).unsqueeze(0) # transform to tensor
 
