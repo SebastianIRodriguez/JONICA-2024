@@ -3,12 +3,20 @@ import time
 import fcntl
 import os
 import sys
+import json
 
 import object_identification as NN
 from object_identification import NeuralNetwork
 
 import hardware_control as HC
 from hardware_control import HardwareControl
+
+
+def update_json(object_id):
+    label = NN.labels[object_id]
+    f = open("/var/www/html/data.json", "w")
+    f.write(json.dumps({'class': label}))
+    f.close()
 
 # El promedio fue de 1.26 - 1.27 segundos entre cada cubito
 nn = NeuralNetwork()
@@ -73,6 +81,7 @@ while True:
             
             tiempo2 = time.time()
             object_id = nn.process_image()
+            update_json(object_id)
             #print(f"La red tardo {time.time() - tiempo2} segundos")
 
             if object_id == desired_object:
