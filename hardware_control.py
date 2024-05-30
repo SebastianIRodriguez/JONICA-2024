@@ -7,7 +7,7 @@ servo_derecha = 1050 #derecha
 servo_izquierda = 2000 #izquierda
 servo_estable = 1530
 motor_frenado = 1500
-motor_girando = 1600
+motor_girando = 1700
 
 # GPIO
 sensor_pin = 17

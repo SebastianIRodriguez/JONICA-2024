@@ -6,8 +6,8 @@ transform = transforms.Compose(
     [
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-        transforms.RandomHorizontalFlip(0.5),
-        transforms.RandomRotation(40)
+        #transforms.RandomHorizontalFlip(0.5),
+        #transforms.RandomRotation(40)
     ]
 )
 
@@ -32,7 +32,7 @@ class NeuralNetwork():
             outputs = self.model(x)
 
         _, predictions = torch.max(outputs, 1)
-        print(labels[predictions[0]])
+        #print(labels[predictions[0]])
         
 
         return predictions[0]
