@@ -4,9 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cdn.tailwindcss.com"></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-	<title>TP1: Raffagnini - Rodriguez</title>
+	<title>JONICA 2024</title>
 	<style>
 		html,
 		body {
@@ -14,20 +12,46 @@
 			padding: 0;
 			height: 100%;
 		}
+		body.container {
+			font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+			--tw-bg-opacity: 1;
+			background-color: rgb(3 7 18 / var(--tw-bg-opacity));
+			align-items: center;
+			flex-direction: column;
+			display: flex;
+			padding: 1rem;
+		}
+		img {
+			object-fit: contain;
+			justify-self: start;
+		}
+		p.object_title {
+			--tw-text-opacity: 1;
+			color: rgb(255 255 255 / var(--tw-text-opacity));
+			font-weight: 600;
+			font-size: 3.75rem;
+			line-height: 1;
+			justify-self: start;
+			margin-top: 1rem;
+			margin-bottom: 2rem;
+		}
+		p.project_info {
+			--tw-text-opacity: 1;
+			color: rgb(100 116 139 / var(--tw-text-opacity));
+			line-height: 1.5rem;
+			padding-right: 1.5rem;
+			padding-left: 1.5rem;
+			justify-self: end;
+		}
 	</style>
 </head>
 
-<body class="flex height:100% flex-col font-mono bg-gray-950 m-4 items-center">
+<body class="container">
+    <img id="img" alt="" loading="lazy" src="img.jpg">
 
-    <img id="img" alt="" loading="lazy" src="img_raspberry.jpeg" class="object-contain justify-self-start">
+    <p class="object_title" id="object_class">Cubo Verde</p>
 
-    <p class="text-white font-semibold text-6xl justify-self-start mt-4 mb-8" id="object_class">
-        Cubo Verde
-    </p>
-
-	<p class="text-m leading-6 text-slate-500 pl-6 pr-6 justify-self-end">
-		Silicio Rey y sus Portadores de Ricota - JONICA 2024
-	</p>
+	<p class="project_info">Silicio Rey y sus Portadores de Ricota <br />JONICA 2024</p>
 
 	<script>
 		setInterval(
@@ -38,7 +62,7 @@
 						var object_class = json["class"];
                         console.log(object_class);
 						var img = document.getElementById("img");
-                        img.src = "img_raspberry.jpeg"
+                        img.src = "img.jpg?" + (+new Date())
 						document.getElementById("object_class").textContent = object_class;
 					});
 			},
